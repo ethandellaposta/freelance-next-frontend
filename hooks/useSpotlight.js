@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 export default function useSpotlight({ heroRef, devRef, careerRef, musicRef, spotlightRef, lightsRef }) {
   useEffect(() => {
-    let spotState = { x: 50, y: 50, h: 230, s: 70, l: 30, size: 50 }
+    const spotState = { x: 50, y: 50, h: 230, s: 70, l: 30, size: 50 }
     let spotTarget = { ...spotState }
     let animating = true
 

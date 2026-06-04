@@ -64,6 +64,63 @@ export const CONTACT_LINKS = [
   }
 ]
 
+export const RESUME_CONTENT = {
+  experience: [
+    {
+      title: 'Senior Software Engineer',
+      company: 'Leidos',
+      period: '2022 — Present',
+      highlights: [
+        'Built mission-critical radar and simulation software used for real-time analysis and operator workflows.',
+        'Delivered full-stack web tools with React, Next.js, and Node.js to improve data visibility and system control.',
+        'Led performance and reliability improvements across distributed services and frontend interfaces.'
+      ]
+    },
+    {
+      title: 'Software Engineer',
+      company: 'Leidos',
+      period: '2020 — 2022',
+      highlights: [
+        'Developed and maintained C++ and JavaScript systems for defense-focused simulation platforms.',
+        'Implemented APIs and UI features that reduced operator friction and improved mission planning speed.',
+        'Collaborated across systems, test, and product teams to deliver high-quality releases on schedule.'
+      ]
+    }
+  ],
+  skills: [
+    {
+      category: 'Frontend',
+      skills: ['React', 'Next.js', 'JavaScript', 'HTML', 'CSS']
+    },
+    {
+      category: 'Backend',
+      skills: ['Node.js', 'Express', 'REST APIs', 'GraphQL', 'MySQL']
+    },
+    {
+      category: 'Systems',
+      skills: ['C++', 'Linux', 'Radar DSP', 'Real-time Simulation']
+    },
+    {
+      category: 'DevOps',
+      skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD']
+    }
+  ],
+  education: [
+    {
+      degree: 'B.S. in Computer Science',
+      institution: 'University of New Hampshire',
+      period: '2016 — 2020'
+    }
+  ],
+  certifications: [
+    {
+      name: 'AWS Certified Cloud Practitioner',
+      issuer: 'Amazon Web Services',
+      date: '2023'
+    }
+  ]
+}
+
 export const FOOTER_LINKS = [
   { href: 'mailto:ethandellaposta@gmail.com', label: 'Email', external: false },
   { href: 'https://linkedin.com/in/ethan-della-posta', label: 'LinkedIn', external: true },
