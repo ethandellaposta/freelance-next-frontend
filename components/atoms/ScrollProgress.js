@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo } from 'react';
 
 function ScrollProgress({ progress }) {
   return (
@@ -9,7 +9,7 @@ function ScrollProgress({ progress }) {
       role="progressbar"
       aria-valuenow={Math.round(progress * 100)}
     />
-  )
+  );
 }
 
-export default memo(ScrollProgress)
+export default memo(ScrollProgress);

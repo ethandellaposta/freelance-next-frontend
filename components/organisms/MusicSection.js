@@ -1,13 +1,16 @@
-import { forwardRef, memo, useRef } from 'react'
-import Icon from '@components/atoms/Icon'
-import SectionHeader from '@components/atoms/SectionHeader'
-import useAudioReactive from '@hooks/useAudioReactive'
-import { SOUNDCLOUD_URL, SOUNDCLOUD_PROFILE } from '@data/constants'
+import { forwardRef, memo, useRef } from 'react';
+import Icon from '@components/atoms/Icon';
+import SectionHeader from '@components/atoms/SectionHeader';
+import useAudioReactive from '@hooks/useAudioReactive';
+import { SOUNDCLOUD_URL, SOUNDCLOUD_PROFILE } from '@data/constants';
 
-function MusicSection({ theme, iframeRef, trackTitle, playingRef, prev, next }, ref) {
-  const musicRegionRef = useRef(null)
+function MusicSection(
+  { theme, iframeRef, trackTitle, playingRef, prev, next },
+  ref
+) {
+  const musicRegionRef = useRef(null);
 
-  useAudioReactive(musicRegionRef, playingRef)
+  useAudioReactive(musicRegionRef, playingRef);
 
   return (
     <section className="region" data-reveal id="music">
@@ -17,18 +20,19 @@ function MusicSection({ theme, iframeRef, trackTitle, playingRef, prev, next }, 
         description="Late-night beats and experiments. Feel free to listen while you scroll."
       />
       <div
-        ref={(el) => {
-          musicRegionRef.current = el
+        ref={el => {
+          musicRegionRef.current = el;
           if (ref) {
-            if (typeof ref === 'function') ref(el)
-            else ref.current = el
+            if (typeof ref === 'function') ref(el);
+            else ref.current = el;
           }
         }}
         className="musicRegion"
       >
         <h3 className="subsectionTitle">Music</h3>
         <p className="subsectionDesc">
-          Beats, loops, and late-night experiments. Mostly electronic, always evolving.
+          Beats, loops, and late-night experiments. Mostly electronic, always
+          evolving.
         </p>
         <div className="scPlayer">
           <iframe
@@ -42,7 +46,10 @@ function MusicSection({ theme, iframeRef, trackTitle, playingRef, prev, next }, 
             loading="lazy"
             style={
               theme === 'dark'
-                ? { filter: 'invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.9)' }
+                ? {
+                    filter:
+                      'invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.9)',
+                  }
                 : undefined
             }
             src={SOUNDCLOUD_URL}
@@ -57,12 +64,17 @@ function MusicSection({ theme, iframeRef, trackTitle, playingRef, prev, next }, 
             <Icon name="nextTrack" size={16} strokeWidth={2} />
           </button>
         </div>
-        <a className="scLink" href={SOUNDCLOUD_PROFILE} target="_blank" rel="noopener noreferrer">
+        <a
+          className="scLink"
+          href={SOUNDCLOUD_PROFILE}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           More on SoundCloud →
         </a>
       </div>
     </section>
-  )
+  );
 }
 
-export default memo(forwardRef(MusicSection))
+export default memo(forwardRef(MusicSection));

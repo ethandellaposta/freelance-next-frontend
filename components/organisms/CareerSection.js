@@ -10,7 +10,7 @@ function CareerSection({}, ref) {
         title="Career"
         description="Scroll to explore my roles and the projects I shipped at each"
       />
-      
+
       <div className="careerContent">
         {RESUME_CONTENT.experience.map((exp, index) => (
           <div key={index} className="careerItem">

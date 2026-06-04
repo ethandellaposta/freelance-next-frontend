@@ -1,70 +1,84 @@
-import { useRef, useState, useCallback } from 'react'
-import dynamic from 'next/dynamic'
-import { FloatingParticles } from '@components/SvgAnimations'
-import CareerParallax from '@components/CareerParallax'
-import SEOHead from '@components/organisms/SEOHead'
-import ScrollProgress from '@components/atoms/ScrollProgress'
-import SectionHeader from '@components/atoms/SectionHeader'
-import NavBar from '@components/molecules/NavBar'
-import SkillsGrid from '@components/molecules/SkillsMarquee'
-import GlobalPlayButton from '@components/molecules/GlobalPlayButton'
-import HeroSection from '@components/organisms/HeroSection'
-import ProjectsSection from '@components/organisms/ProjectsSection'
-import MusicSection from '@components/organisms/MusicSection'
-import ContactSection from '@components/organisms/ContactSection'
-import SiteFooter from '@components/organisms/SiteFooter'
-import useTheme from '@hooks/useTheme'
-import useScrollProgress from '@hooks/useScrollProgress'
-import useRoleRotation from '@hooks/useRoleRotation'
-import useRevealOnScroll from '@hooks/useRevealOnScroll'
-import useSpotlight from '@hooks/useSpotlight'
-import useHeaderParallax from '@hooks/useHeaderParallax'
-import useSoundCloud from '@hooks/useSoundCloud'
-import { ROLES, SKILLS, AMBIENT_LIGHTS } from '@data/constants'
+import { useRef, useState, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import { FloatingParticles } from '@components/SvgAnimations';
+import CareerParallax from '@components/CareerParallax';
+import SEOHead from '@components/organisms/SEOHead';
+import ScrollProgress from '@components/atoms/ScrollProgress';
+import SectionHeader from '@components/atoms/SectionHeader';
+import NavBar from '@components/molecules/NavBar';
+import SkillsGrid from '@components/molecules/SkillsMarquee';
+import GlobalPlayButton from '@components/molecules/GlobalPlayButton';
+import HeroSection from '@components/organisms/HeroSection';
+import ProjectsSection from '@components/organisms/ProjectsSection';
+import MusicSection from '@components/organisms/MusicSection';
+import ContactSection from '@components/organisms/ContactSection';
+import SiteFooter from '@components/organisms/SiteFooter';
+import useTheme from '@hooks/useTheme';
+import useScrollProgress from '@hooks/useScrollProgress';
+import useRoleRotation from '@hooks/useRoleRotation';
+import useRevealOnScroll from '@hooks/useRevealOnScroll';
+import useSpotlight from '@hooks/useSpotlight';
+import useHeaderParallax from '@hooks/useHeaderParallax';
+import useSoundCloud from '@hooks/useSoundCloud';
+import { ROLES, SKILLS, AMBIENT_LIGHTS } from '@data/constants';
 
-const ParticleNetwork = dynamic(() => import('@components/ParticleNetwork'), { ssr: false })
+const ParticleNetwork = dynamic(() => import('@components/ParticleNetwork'), {
+  ssr: false,
+});
 
 export default function Home() {
-  const { theme, toggleTheme } = useTheme()
-  const { progress, navSolid } = useScrollProgress()
-  const { role, visible: roleVisible } = useRoleRotation(ROLES)
-  const [launchState, setLaunchState] = useState(null)
+  const { theme, toggleTheme } = useTheme();
+  const { progress, navSolid } = useScrollProgress();
+  const { role, visible: roleVisible } = useRoleRotation(ROLES);
+  const [launchState, setLaunchState] = useState(null);
 
-  const heroRef = useRef(null)
-  const devRef = useRef(null)
-  const careerRef = useRef(null)
-  const musicRef = useRef(null)
-  const spotlightRef = useRef(null)
-  const lightsRef = useRef(null)
-  const scIframeRef = useRef(null)
-  const launchTimerRef = useRef(null)
+  const heroRef = useRef(null);
+  const devRef = useRef(null);
+  const careerRef = useRef(null);
+  const musicRef = useRef(null);
+  const spotlightRef = useRef(null);
+  const lightsRef = useRef(null);
+  const scIframeRef = useRef(null);
+  const launchTimerRef = useRef(null);
 
-  const { trackTitle, playingRef, isPlaying, hasPlayed, prev, next, toggle } = useSoundCloud(scIframeRef)
+  const { trackTitle, playingRef, isPlaying, hasPlayed, prev, next, toggle } =
+    useSoundCloud(scIframeRef);
 
-  useRevealOnScroll()
-  useSpotlight({ heroRef, devRef, careerRef, musicRef, spotlightRef, lightsRef })
-  useHeaderParallax()
+  useRevealOnScroll();
+  useSpotlight({
+    heroRef,
+    devRef,
+    careerRef,
+    musicRef,
+    spotlightRef,
+    lightsRef,
+  });
+  useHeaderParallax();
 
   const handleLaunch = useCallback(
     (e, id, url) => {
-      e.preventDefault()
-      if (launchState) return
-      const r = e.currentTarget.getBoundingClientRect()
-      const x = ((r.left + r.width / 2) / window.innerWidth) * 100
-      const y = ((r.top + r.height / 2) / window.innerHeight) * 100
-      setLaunchState({ id, url, x, y })
+      e.preventDefault();
+      if (launchState) return;
+      const r = e.currentTarget.getBoundingClientRect();
+      const x = ((r.left + r.width / 2) / window.innerWidth) * 100;
+      const y = ((r.top + r.height / 2) / window.innerHeight) * 100;
+      setLaunchState({ id, url, x, y });
       launchTimerRef.current = setTimeout(() => {
-        window.open(url, '_blank')
-        setTimeout(() => setLaunchState(null), 300)
-      }, 800)
+        window.open(url, '_blank');
+        setTimeout(() => setLaunchState(null), 300);
+      }, 800);
     },
     [launchState]
-  )
+  );
 
   return (
     <div
       className={`scene${launchState ? ` launch-${launchState.id} launching` : ''}`}
-      style={launchState ? { '--lx': `${launchState.x}%`, '--ly': `${launchState.y}%` } : undefined}
+      style={
+        launchState
+          ? { '--lx': `${launchState.x}%`, '--ly': `${launchState.y}%` }
+          : undefined
+      }
     >
       <SEOHead />
       <ScrollProgress progress={progress} />
@@ -90,7 +104,7 @@ export default function Home() {
                 '--asize': light.asize,
                 '--acolor': light.acolor,
                 '--ablur': light.ablur,
-                '--aopacity': light.aopacity
+                '--aopacity': light.aopacity,
               }}
             />
           ))}
@@ -106,7 +120,12 @@ export default function Home() {
       </main>
 
       {/* Career — full-width scroll-locked parallax */}
-      <section ref={careerRef} className="careerRegion" id="career" aria-label="Career history">
+      <section
+        ref={careerRef}
+        className="careerRegion"
+        id="career"
+        aria-label="Career history"
+      >
         <div className="careerHeader">
           <SectionHeader
             number="02"
@@ -123,8 +142,17 @@ export default function Home() {
         <div className="sectionGap" />
 
         {/* Skills */}
-        <section className="region skillsRegion" data-reveal id="skills" aria-label="Technical skills">
-          <SectionHeader number="03" title="Tech Stack" description="Technologies I work with daily" />
+        <section
+          className="region skillsRegion"
+          data-reveal
+          id="skills"
+          aria-label="Technical skills"
+        >
+          <SectionHeader
+            number="03"
+            title="Tech Stack"
+            description="Technologies I work with daily"
+          />
           <SkillsGrid skills={SKILLS} />
         </section>
 
@@ -214,7 +242,12 @@ export default function Home() {
           right: 0;
           height: 2px;
           z-index: 200;
-          background: linear-gradient(90deg, var(--accent), hsl(260, 70%, 65%), hsl(200, 70%, 60%));
+          background: linear-gradient(
+            90deg,
+            var(--accent),
+            hsl(260, 70%, 65%),
+            hsl(200, 70%, 60%)
+          );
           transform-origin: left;
           will-change: transform;
           pointer-events: none;
@@ -359,7 +392,11 @@ export default function Home() {
           width: var(--asize);
           height: var(--asize);
           border-radius: 50%;
-          background: radial-gradient(circle, var(--acolor) 0%, transparent 65%);
+          background: radial-gradient(
+            circle,
+            var(--acolor) 0%,
+            transparent 65%
+          );
           filter: blur(var(--ablur));
           opacity: var(--aopacity);
           transform: translate(-50%, -50%);
@@ -465,7 +502,6 @@ export default function Home() {
           position: relative;
           z-index: 1;
           width: 100%;
-          max-width: var(--max-width);
           margin: 0 auto;
           padding: var(--space-5xl) var(--gutter) var(--space-3xl);
           flex: 1;
@@ -522,7 +558,12 @@ export default function Home() {
         }
 
         .heroNameGradient {
-          background: linear-gradient(135deg, var(--accent), hsl(260, 70%, 65%), hsl(200, 70%, 60%));
+          background: linear-gradient(
+            135deg,
+            var(--accent),
+            hsl(260, 70%, 65%),
+            hsl(200, 70%, 60%)
+          );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -580,7 +621,11 @@ export default function Home() {
           font-size: 0.88rem;
           font-weight: 600;
           color: #fff;
-          background: linear-gradient(135deg, var(--accent), hsl(260, 70%, 60%));
+          background: linear-gradient(
+            135deg,
+            var(--accent),
+            hsl(260, 70%, 60%)
+          );
           border-radius: 10px;
           text-decoration: none;
           transition:
@@ -656,7 +701,11 @@ export default function Home() {
           width: var(--bsize);
           height: var(--bsize);
           border-radius: 50%;
-          background: radial-gradient(circle, var(--bcolor) 0%, transparent 70%);
+          background: radial-gradient(
+            circle,
+            var(--bcolor) 0%,
+            transparent 70%
+          );
           filter: blur(var(--bblur));
           opacity: var(--bopacity);
           transform: translate(-50%, -50%);
@@ -681,7 +730,11 @@ export default function Home() {
           width: var(--psize);
           height: var(--psize);
           border-radius: 50%;
-          background: radial-gradient(circle, var(--pcolor) 0%, transparent 70%);
+          background: radial-gradient(
+            circle,
+            var(--pcolor) 0%,
+            transparent 70%
+          );
           filter: blur(30px);
           opacity: 0;
           transform: translate(-50%, -50%);
@@ -929,9 +982,12 @@ export default function Home() {
           border: 1px solid var(--border);
           box-shadow:
             0 0 0 1px rgba(var(--music-glow-rgb), calc(var(--energy) * 0.15)),
-            0 0 calc(8px + var(--bass) * 40px) rgba(var(--music-glow-rgb), calc(var(--bass) * 0.2)),
-            0 0 calc(4px + var(--mid) * 20px) rgba(var(--music-glow2-rgb), calc(var(--mid) * 0.12)),
-            inset 0 0 calc(20px + var(--bass) * 60px) rgba(var(--music-glow-rgb), calc(var(--bass) * 0.06));
+            0 0 calc(8px + var(--bass) * 40px)
+              rgba(var(--music-glow-rgb), calc(var(--bass) * 0.2)),
+            0 0 calc(4px + var(--mid) * 20px)
+              rgba(var(--music-glow2-rgb), calc(var(--mid) * 0.12)),
+            inset 0 0 calc(20px + var(--bass) * 60px)
+              rgba(var(--music-glow-rgb), calc(var(--bass) * 0.06));
           transform: scale(calc(1 + var(--bass) * 0.008));
           transition: transform 60ms linear;
         }
@@ -960,7 +1016,8 @@ export default function Home() {
           border: 1px solid var(--border);
           margin-bottom: var(--space-md);
           background: var(--bg);
-          box-shadow: 0 0 calc(var(--bass) * 20px) rgba(var(--music-glow-rgb), calc(var(--bass) * 0.1));
+          box-shadow: 0 0 calc(var(--bass) * 20px)
+            rgba(var(--music-glow-rgb), calc(var(--bass) * 0.1));
         }
 
         .scPlayer iframe {
@@ -1094,19 +1151,35 @@ export default function Home() {
         }
 
         .evoCard .cardGlow {
-          background: radial-gradient(ellipse at 30% 50%, var(--glow-evo) 0%, transparent 60%);
+          background: radial-gradient(
+            ellipse at 30% 50%,
+            var(--glow-evo) 0%,
+            transparent 60%
+          );
         }
 
         .solarCard .cardGlow {
-          background: radial-gradient(ellipse at 30% 50%, var(--glow-solar) 0%, transparent 60%);
+          background: radial-gradient(
+            ellipse at 30% 50%,
+            var(--glow-solar) 0%,
+            transparent 60%
+          );
         }
 
         .musicCard .cardGlow {
-          background: radial-gradient(ellipse at 30% 50%, var(--glow-music) 0%, transparent 60%);
+          background: radial-gradient(
+            ellipse at 30% 50%,
+            var(--glow-music) 0%,
+            transparent 60%
+          );
         }
 
         .radarCard .cardGlow {
-          background: radial-gradient(ellipse at 30% 50%, hsla(140, 70%, 45%, 0.15) 0%, transparent 60%);
+          background: radial-gradient(
+            ellipse at 30% 50%,
+            hsla(140, 70%, 45%, 0.15) 0%,
+            transparent 60%
+          );
         }
 
         /* Hover shadow only — transform handled by lerp */
@@ -1150,7 +1223,11 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           border-radius: 12px;
-          background: color-mix(in srgb, var(--surface-raised) 90%, transparent);
+          background: color-mix(
+            in srgb,
+            var(--surface-raised) 90%,
+            transparent
+          );
           border: 1px solid var(--border);
           transition: transform 500ms ease;
         }
@@ -1446,7 +1523,11 @@ export default function Home() {
           position: relative;
           width: 40px;
           height: 40px;
-          background: linear-gradient(135deg, var(--accent), hsl(260, 70%, 60%));
+          background: linear-gradient(
+            135deg,
+            var(--accent),
+            hsl(260, 70%, 60%)
+          );
           color: #fff;
           box-shadow: 0 2px 12px hsla(230, 80%, 50%, 0.3);
         }
@@ -1643,5 +1724,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }

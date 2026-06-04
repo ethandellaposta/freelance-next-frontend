@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo } from 'react';
 
 function SectionHeader({ number, title, description }) {
   return (
@@ -7,7 +7,7 @@ function SectionHeader({ number, title, description }) {
       <h2 className="sectionTitle">{title}</h2>
       {description && <p className="regionDesc">{description}</p>}
     </div>
-  )
+  );
 }
 
-export default memo(SectionHeader)
+export default memo(SectionHeader);
