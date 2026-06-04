@@ -14,19 +14,16 @@ const JOBS = [
         title: 'SBC/FPGA Integration',
         desc: 'Partnered with firmware team on single-board computer and FPGA chip setup, integrating with hardware-specific drivers and developing c++ interfaces.',
         tags: ['C++', 'Podman', 'Bamboo', 'Slurm'],
-        stats: [
-        ],
+        stats: [],
         visual: 'chip',
       },
       {
         title: 'Simulation-ICD Adapter',
         desc: 'Built adapters bridging multiple radar platform ICDs to standardized messaging protocols for cross-system interoperability with simulated radar data processes.',
         tags: ['C++', 'Protobuf', 'Linux'],
-        stats: [
-          { label: 'Radars integrated', value: '2' }
-        ],
+        stats: [{ label: 'Radars integrated', value: '2' }],
         visual: 'drone',
-      }
+      },
     ],
   },
   {
@@ -48,7 +45,7 @@ const JOBS = [
           { label: 'Translation latency', value: '<1ms' },
         ],
         visual: 'messages',
-      }
+      },
     ],
   },
   {

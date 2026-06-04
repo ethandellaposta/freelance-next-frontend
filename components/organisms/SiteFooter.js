@@ -1,5 +1,5 @@
-import { memo } from 'react'
-import { FOOTER_LINKS } from '@data/constants'
+import { memo } from 'react';
+import { FOOTER_LINKS } from '@data/constants';
 
 function SiteFooter() {
   return (
@@ -11,7 +11,9 @@ function SiteFooter() {
             <a
               key={label}
               href={href}
-              {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              {...(external
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
             >
               {label}
             </a>
@@ -22,7 +24,7 @@ function SiteFooter() {
         </p>
       </div>
     </footer>
-  )
+  );
 }
 
-export default memo(SiteFooter)
+export default memo(SiteFooter);

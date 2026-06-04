@@ -1,7 +1,7 @@
-import { memo } from 'react'
-import SectionHeader from '@components/atoms/SectionHeader'
-import ContactCard from '@components/molecules/ContactCard'
-import { CONTACT_LINKS } from '@data/constants'
+import { memo } from 'react';
+import SectionHeader from '@components/atoms/SectionHeader';
+import ContactCard from '@components/molecules/ContactCard';
+import { CONTACT_LINKS } from '@data/constants';
 
 function ContactSection() {
   return (
@@ -12,12 +12,12 @@ function ContactSection() {
         description="Want to hire me? Have a simulation idea? Let's talk."
       />
       <div className="contactGrid">
-        {CONTACT_LINKS.map((link) => (
+        {CONTACT_LINKS.map(link => (
           <ContactCard key={link.label} {...link} />
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-export default memo(ContactSection)
+export default memo(ContactSection);
