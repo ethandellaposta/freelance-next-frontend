@@ -8,28 +8,25 @@ const JOBS = [
     location: 'Remote',
     accent: 'hsl(230, 80%, 65%)',
     description:
-      'Building mission-critical radar software, collaborating across firmware, systems, and hardware teams.',
+      'Building radar software, collaborating across firmware, systems, and hardware teams.',
     projects: [
       {
-        title: 'Radar Signal Processing Pipeline',
-        desc: 'Developed RX dwell scheduling and exposure processing algorithms for real-time radar data acquisition.',
-        tags: ['C++', 'Slurm', 'Linux'],
-        stats: [
-          { label: 'Dwell latency', value: '<5ms' },
-          { label: 'Throughput', value: '2.4Gbps' },
-        ],
-        visual: 'radar',
-      },
-      {
         title: 'SBC/FPGA Integration',
-        desc: 'Partnered with firmware team on single-board computer and FPGA chip setup, writing hardware-specific drivers and interfaces.',
-        tags: ['SQL', 'Bamboo', 'Podman'],
+        desc: 'Partnered with firmware team on single-board computer and FPGA chip setup, integrating with hardware-specific drivers and developing c++ interfaces.',
+        tags: ['C++', 'Podman', 'Bamboo', 'Slurm'],
         stats: [
-          { label: 'Boot time', value: '-45%' },
-          { label: 'Reliability', value: '99.99%' },
         ],
         visual: 'chip',
       },
+      {
+        title: 'Simulation-ICD Adapter',
+        desc: 'Built adapters bridging multiple radar platform ICDs to standardized messaging protocols for cross-system interoperability with simulated radar data processes.',
+        tags: ['C++', 'Protobuf', 'Linux'],
+        stats: [
+          { label: 'Radars integrated', value: '2' }
+        ],
+        visual: 'drone',
+      }
     ],
   },
   {
@@ -40,28 +37,18 @@ const JOBS = [
     location: 'Remote',
     accent: 'hsl(260, 70%, 62%)',
     description:
-      'Translated drone system ICDs to a shared mission system messaging framework.',
+      'Translated drone system interface control document code into a shared mission system messaging framework.',
     projects: [
       {
         title: 'Mission Messaging Framework',
         desc: 'Developed message translators for drone ICDs including track, position, and capabilities messages to unified mission system format.',
-        tags: ['C++', 'Jenkins', 'Kubernetes'],
+        tags: ['C++', 'Jenkins', 'Podman'],
         stats: [
           { label: 'Message types', value: '24+' },
           { label: 'Translation latency', value: '<1ms' },
         ],
         visual: 'messages',
-      },
-      {
-        title: 'ICD Integration Layer',
-        desc: 'Built adapters bridging multiple drone platform ICDs to standardized messaging protocols for cross-system interoperability.',
-        tags: ['C++', 'Protobuf', 'Linux'],
-        stats: [
-          { label: 'Platforms integrated', value: '5' },
-          { label: 'Message throughput', value: '10k/s' },
-        ],
-        visual: 'drone',
-      },
+      }
     ],
   },
   {
