@@ -8,25 +8,25 @@ const JOBS = [
     location: 'Remote',
     accent: 'hsl(230, 80%, 65%)',
     description:
-      'Building mission-critical radar software, collaborating across firmware, systems, and hardware teams.',
+      'Working on radar software with firmware, systems, and hardware teams.',
     projects: [
       {
         title: 'Radar Signal Processing Pipeline',
-        desc: 'Developed RX dwell scheduling and exposure processing algorithms for real-time radar data acquisition.',
+        desc: 'Worked on RX dwell scheduling and exposure processing for radar data acquisition.',
         tags: ['C++', 'Slurm', 'Linux'],
         stats: [
           { label: 'RX scheduling', value: 'Built' },
-          { label: 'Exposure processing', value: 'Implemented' },
+          { label: 'Exposure flow', value: 'Built' },
         ],
         visual: 'radar',
       },
       {
         title: 'SBC/FPGA Integration',
-        desc: 'Partnered with firmware team on single-board computer and FPGA chip setup, writing hardware-specific drivers and interfaces.',
+        desc: 'Helped bring up SBC/FPGA hardware and wrote supporting interfaces.',
         tags: ['SQL', 'Bamboo', 'Podman'],
         stats: [
-          { label: 'SBC/FPGA setup', value: 'Supported' },
-          { label: 'Hardware interfaces', value: 'Built' },
+          { label: 'Board bring-up', value: 'Supported' },
+          { label: 'Driver interfaces', value: 'Built' },
         ],
         visual: 'chip',
       },
@@ -40,25 +40,25 @@ const JOBS = [
     location: 'Remote',
     accent: 'hsl(260, 70%, 62%)',
     description:
-      'Translated drone system ICDs to a shared mission system messaging framework.',
+      'Worked on translating drone ICD messages into a shared messaging format.',
     projects: [
       {
         title: 'Mission Messaging Framework',
-        desc: 'Developed message translators for drone ICDs including track, position, and capabilities messages to unified mission system format.',
+        desc: 'Built translators for track, position, and capability messages.',
         tags: ['C++', 'Jenkins', 'Kubernetes'],
         stats: [
-          { label: 'ICD translation', value: 'Developed' },
-          { label: 'Message mapping', value: 'Implemented' },
+          { label: 'Track messages', value: 'Mapped' },
+          { label: 'Capability data', value: 'Mapped' },
         ],
         visual: 'messages',
       },
       {
         title: 'ICD Integration Layer',
-        desc: 'Built adapters bridging multiple drone platform ICDs to standardized messaging protocols for cross-system interoperability.',
+        desc: 'Built adapters between drone platform ICDs and the shared message format.',
         tags: ['C++', 'Protobuf', 'Linux'],
         stats: [
-          { label: 'Protocol adapters', value: 'Built' },
-          { label: 'Interop layer', value: 'Implemented' },
+          { label: 'ICD adapters', value: 'Built' },
+          { label: 'Shared format', value: 'Integrated' },
         ],
         visual: 'drone',
       },
@@ -72,25 +72,25 @@ const JOBS = [
     location: 'Los Angeles',
     accent: 'hsl(320, 65%, 58%)',
     description:
-      'Led full-stack development during a major pivot from baby food subscriptions to a broader e-commerce platform.',
+      'Built storefront, checkout, subscription, and admin tools for an e-commerce product.',
     projects: [
       {
         title: 'E-Commerce Platform',
-        desc: 'Built the entire storefront from scratch — product pages, cart, checkout, subscriptions, and admin tools.',
+        desc: 'Built product pages, cart, checkout, subscription flows, and admin screens.',
         tags: ['Next.js', 'Feathers.js', 'MySQL', 'Stripe'],
         stats: [
-          { label: 'Storefront', value: 'Built' },
-          { label: 'Checkout/admin', value: 'Shipped' },
+          { label: 'Product pages', value: 'Built' },
+          { label: 'Checkout/admin', value: 'Built' },
         ],
         visual: 'cart',
       },
       {
         title: 'Subscription Engine',
-        desc: 'Designed a flexible subscription system supporting weekly, biweekly, and monthly delivery cadences with skip/pause.',
+        desc: 'Built subscription controls for weekly, biweekly, and monthly delivery cadences.',
         tags: ['TypeScript', 'MySQL', 'AWS Lambda'],
         stats: [
-          { label: 'Skip/pause flows', value: 'Supported' },
-          { label: 'Delivery cadence', value: 'Weekly/monthly' },
+          { label: 'Skip/pause', value: 'Built' },
+          { label: 'Cadence rules', value: 'Built' },
         ],
         visual: 'calendar',
       },
@@ -104,25 +104,25 @@ const JOBS = [
     location: 'Boston',
     accent: 'hsl(160, 60%, 50%)',
     description:
-      'Piloted a company-wide unified UI initiative. Built apps, libraries, and APIs across the stack.',
+      'Worked on shared UI, apps, libraries, and APIs across the stack.',
     projects: [
       {
         title: 'Unified UI Framework',
-        desc: 'Created a cross-product component library that standardized the UI across 6 enterprise products.',
+        desc: 'Built React components and UI patterns reused across Acquia products.',
         tags: ['React', 'GraphQL', 'Nest.js'],
         stats: [
-          { label: 'Component library', value: 'Built' },
-          { label: 'Cross-product UI', value: 'Standardized' },
+          { label: 'React components', value: 'Built' },
+          { label: 'UI patterns', value: 'Shared' },
         ],
         visual: 'components',
       },
       {
         title: 'Internal API Gateway',
-        desc: 'Built a Go-based API gateway handling auth, routing, and rate limiting for internal microservices.',
+        desc: 'Built Go services for auth, routing, and rate limiting.',
         tags: ['Go', 'Docker', 'gRPC'],
         stats: [
-          { label: 'Service routing', value: 'Built' },
-          { label: 'Auth/routing', value: 'Implemented' },
+          { label: 'Auth service', value: 'Built' },
+          { label: 'Routing logic', value: 'Built' },
         ],
         visual: 'network',
       },
@@ -136,15 +136,15 @@ const JOBS = [
     location: 'Los Angeles',
     accent: 'hsl(40, 80%, 55%)',
     description:
-      'Built a platform for hosting free personal websites with LinkedIn, GitHub, and Medium integrations.',
+      'Built tools for personal websites with LinkedIn, GitHub, and Medium imports.',
     projects: [
       {
         title: 'Website Builder',
-        desc: 'Drag-and-drop website builder with live preview, custom domains, and social media auto-import.',
+        desc: 'Built live preview, custom domain support, and social media import flows.',
         tags: ['Next.js', 'Node.js', 'MySQL'],
         stats: [
           { label: 'Live preview', value: 'Built' },
-          { label: 'Custom domains', value: 'Supported' },
+          { label: 'Domain setup', value: 'Built' },
         ],
         visual: 'browser',
       },
