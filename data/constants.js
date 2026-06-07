@@ -62,6 +62,13 @@ export const CONTACT_LINKS = [
     icon: 'github',
     external: true,
   },
+  {
+    href: 'https://www.youtube.com/@ethandellaposta',
+    label: 'YouTube',
+    value: 'Watch my channel',
+    icon: 'youtube',
+    external: true,
+  },
 ];
 
 export const RESUME_CONTENT = {
@@ -131,6 +138,11 @@ export const FOOTER_LINKS = [
   {
     href: 'https://github.com/ethandellaposta',
     label: 'GitHub',
+    external: true,
+  },
+  {
+    href: 'https://www.youtube.com/@ethandellaposta',
+    label: 'YouTube',
     external: true,
   },
   {
