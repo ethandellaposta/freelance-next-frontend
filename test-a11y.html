@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="node_modules/axe-core/axe.min.js"></script>
+</head>
+<body>
+  <script>
+    // Run axe on the page
+    axe.run().then(results => {
+      if (results.violations.length === 0) {
+        console.log('✅ No accessibility violations found!');
+        process.exit(0);
+      } else {
+        console.log('❌ Accessibility violations found:');
+        results.violations.forEach(violation => {
+          console.log(`- ${violation.description}`);
+          violation.nodes.forEach(node => {
+            console.log(`  Target: ${node.target.join(', ')}`);
+          });
+        });
+        process.exit(1);
+      }
+    }).catch(err => {
+      console.error('Error running accessibility tests:', err);
+      process.exit(1);
+    });
+  </script>
+</body>
+</html>
+  
